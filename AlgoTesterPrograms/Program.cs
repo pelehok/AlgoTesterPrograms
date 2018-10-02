@@ -10,7 +10,7 @@ namespace AlgoTesterPrograms
     {
         static void Main(string[] args)
         {
-            Monsters.Problem();
+            Talent_Contest.Problem();
         }
     }
 }
