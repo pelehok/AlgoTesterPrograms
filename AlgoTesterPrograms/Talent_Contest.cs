@@ -12,7 +12,7 @@ namespace AlgoTesterPrograms
         public static void Problem(){
             //string[] NK = Console.ReadLine().Split(' ');
             int N = 5;//int.Parse(NK[0]);
-            int K = 3;//int.Parse(NK[1]);
+            int K = 2;//int.Parse(NK[1]);
 
             char[,] matrix = new char[N,N];
             //for (int i = 0; i < N; i++)
@@ -26,10 +26,10 @@ namespace AlgoTesterPrograms
 
             List<string> s = new List<string>()
             {
-                "10100",
-                "00000",
-                "00010",
-                "00000",
+                "10110",
+                "10101",
+                "01000",
+                "11010",
                 "10001"
             };
             for (int i = 0; i < N; i++)

@@ -8,9 +8,9 @@ namespace AlgoTesterPrograms
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            Talent_Contest.Problem();
-        }
+        //static void Main(string[] args)
+        //{
+        //    Talent_Contest.Problem();
+        //}
     }
 }

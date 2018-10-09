@@ -42,12 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Candle.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Class2.cs" />
     <Compile Include="Interesting_Correspondence.cs" />
     <Compile Include="Monsters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Talent_Contest.cs" />
     <Compile Include="Temp.cs" />
+    <Compile Include="Temperature.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
