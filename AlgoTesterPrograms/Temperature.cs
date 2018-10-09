@@ -8,7 +8,7 @@ namespace AlgoTesterPrograms
 {
     class Temperature
     {
-        public static void Main(){
+        public static void Main1(){
             string s = "2 7"; //Console.ReadLine();
             string[] NK = s.Split(' ');
             int days = int.Parse(NK[0]);
