@@ -9,20 +9,20 @@ namespace AlgoTesterPrograms
     class Temperature
     {
         public static void Main1(){
-            string s = "2 7"; //Console.ReadLine();
+            string s = Console.ReadLine();
             string[] NK = s.Split(' ');
-            int days = int.Parse(NK[0]);
-            int maxTempDiff = int.Parse(NK[1]);
+            long days = long.Parse(NK[0]);
+            long maxTempDiff = long.Parse(NK[1]);
 
-            s = "-3 1"; //Console.ReadLine();
+            s = Console.ReadLine();
             string[] AB = s.Split(' ');
-            int A = int.Parse(AB[0]);
-            int B = int.Parse(AB[1]);
+            long A = long.Parse(AB[0]);
+            long B = long.Parse(AB[1]);
 
-            int diff = Math.Abs(A - B);
+            long diff = Math.Abs(A - B);
             if (maxTempDiff != 0 || days == 2)
             {
-                int temp = (int) Math.Floor((double) diff / (double) maxTempDiff);
+                long temp = (long) Math.Floor((double) diff / (double) maxTempDiff);
                 if (A < B)
                 {
                     AddNewMax(A + maxTempDiff * temp, B, days - temp - 1, maxTempDiff);
@@ -40,14 +40,13 @@ namespace AlgoTesterPrograms
                 MinTemp = Math.Min(A, B);
             }
 
-            Console.WriteLine(MaxTemp);
-            Console.WriteLine(MinTemp);
+            Console.WriteLine(MaxTemp + " "+ MinTemp);
             Console.ReadKey();
         }
 
-        private static int MaxTemp = 0;
+        private static long MaxTemp = 0;
 
-        public static void AddNewMax(int A, int B, int day, int step){
+        public static void AddNewMax(long A, long B, long day, long step){
             if (day == 1)
             {
                 MaxTemp = Math.Max(A, B);
@@ -66,22 +65,22 @@ namespace AlgoTesterPrograms
             {
                 if (day % 2 == 0)
                 {
-                    int diff = day * step / 2;
+                    long diff = day * step / 2;
                     MaxTemp = A + diff;
                     return;
                 }
                 else
                 {
-                    int diff = (day + 1) * step / 2;
+                    long diff = (day + 1) * step / 2;
                     MaxTemp = A + diff;
                     return;
                 }
             }
         }
 
-        private static int MinTemp = 0;
+        private static long MinTemp = 0;
 
-        public static void AddNewMin(int A, int B, int day, int step){
+        public static void AddNewMin(long A, long B, long day, long step){
             if (day == 1)
             {
                 MinTemp = Math.Min(A, B);
@@ -100,13 +99,13 @@ namespace AlgoTesterPrograms
             {
                 if (day % 2 == 0)
                 {
-                    int diff = day * step / 2;
+                    long diff = day * step / 2;
                     MinTemp = A - diff;
                     return;
                 }
                 else
                 {
-                    int diff = (day + 1) * step / 2;
+                    long diff = (day + 1) * step / 2;
                     MinTemp = A - diff;
                     return;
                 }

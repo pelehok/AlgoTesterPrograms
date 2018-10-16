@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apples.cs" />
     <Compile Include="Candle.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Interesting_Correspondence.cs" />
