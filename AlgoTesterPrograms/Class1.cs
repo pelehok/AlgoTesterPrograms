@@ -1,74 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AlgoTesterPrograms
 {
-    class Class1
+    class Class3
     {
-        public static int N;
-        public static int M;
-        static double step = 10e-8;
-
-        public static void Main1(String[] args){
-            string[] NK = Console.ReadLine().Split(' ');
-            N = int.Parse(NK[0]);
-            M = int.Parse(NK[1]);
-
-            string[] l = Console.ReadLine().Split(' ');
-            List<double> candels = new List<double>();
-            for (int i = 0; i < l.Length; i++)
-            {
-                candels.Add(double.Parse(l[i]));
-            }
-
-            candels.Sort();
-
-
-            double MaxCandle = candels[M - 1];
-
-            if (isCanDiff(candels, MaxCandle))
-            {
-                Console.WriteLine(MaxCandle);
-            }
-            else
-            {
-                SearchMax(step, MaxCandle, candels);
-            }
-
-            Console.ReadKey();
-        }
-
-        public static bool isCanDiff(List<double> candels, double divider)
+        static char fire = '0';
+        static char safe = '1';
+        static int rikoStep = 4;
+        static int kovalStep = 7;
+        public static void Main1()
         {
-            int result = 0;
+            string s = Console.ReadLine();
+            string[] RK = s.Split(' ');
 
-            for (int i = 0; i < M; i++)
+            int riko = int.Parse(RK[1])-1;//4
+            int koval = int.Parse(RK[2])-1;//7
+
+            int N = int.Parse(RK[0]);
+            s = Console.ReadLine();
+            string woods = s;
+            List<int> kovalPosition = new List<int>();
+            List<int> rikoPosition = new List<int>();
+
+            for (int i = koval; i < N; i += kovalStep)
             {
-                result += (int)Math.Floor(candels[i] / divider);
+                if (woods[i] == fire) break;
+                kovalPosition.Add(i);
             }
 
-            return result >= N;
-        }
-
-        private static void SearchMax(double left, double right,List<double> candles){
-            double middle = (right + left) / 2.0;
-
-            bool isMiddleCan = isCanDiff(candles,middle);
-
-            if (isMiddleCan && !isCanDiff(candles,middle + 10e-8))
+            for (int i = koval - kovalStep; i >= 0; i -= kovalStep)
             {
-                Console.WriteLine(middle);
+                if (woods[i] == fire) break;
+                kovalPosition.Add(i);
+            }
+
+            for (int i = riko; i < N; i += rikoStep)
+            {
+                if (woods[i] == fire) break;
+                rikoPosition.Add(i);
+            }
+
+            for (int i = riko - rikoStep; i >= 0; i -= rikoStep)
+            {
+                if (woods[i] == fire) break;
+                rikoPosition.Add(i);
+            }
+
+            rikoPosition = rikoPosition.Intersect(kovalPosition).ToList();
+
+            if (rikoPosition.Count == 0)
+            {
+                Console.WriteLine("-1");
                 return;
             }
 
-            if (isMiddleCan)
+            int minStep = int.MaxValue;
+
+            for (int i = 0; i < rikoPosition.Count; i++)
             {
-                SearchMax(middle, right, candles);
+                int steps = Math.Abs(rikoPosition[i] - koval) / kovalStep;
+                steps += Math.Abs(rikoPosition[i] - riko) / rikoStep;
+                if (minStep > steps) minStep = steps;
             }
-            else
-            {
-                SearchMax(left, middle, candles);
-            }
+
+            Console.WriteLine(minStep);
+            Console.ReadKey();
         }
     }
 }

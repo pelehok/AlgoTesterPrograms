@@ -53,6 +53,7 @@
     <Compile Include="Talent_Contest.cs" />
     <Compile Include="Temp.cs" />
     <Compile Include="Temperature.cs" />
+    <Compile Include="UnfairCompetition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -8,9 +8,9 @@ namespace AlgoTesterPrograms
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
-            Apples.Problem();
+            Monsters.Problem();
         }
     }
 }
